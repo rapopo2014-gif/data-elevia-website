@@ -1,0 +1,58 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hubungi Kami - Data Elevia</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <nav class="nav">
+        <a href="index.html" class="logo">Data <span>Elevia</span></a>
+        <ul class="nav-links">
+            <li><a href="index.html">Beranda</a></li>
+            <li><a href="#contact">Kontak</a></li>
+        </ul>
+    </nav>
+
+    <section class="contact-section" id="contact">
+        <h2>Hubungi Kami</h2>
+        <p>Hubungi langsung tim kami melalui WhatsApp untuk informasi lebih lanjut.</p>
+        
+        <form class="whatsapp-form" id="whatsapp-form">
+            <input type="text" id="name" placeholder="Nama lengkap" required>
+            <input type="tel" id="phone" placeholder="Nomor WhatsApp" required>
+            <textarea id="message" placeholder="Pesan Anda..." required></textarea>
+            <button type="submit">Kirim ke WhatsApp</button>
+        </form>
+    </section>
+
+    <footer class="footer">
+        <p>&copy; 2026 Data Elevia. All rights reserved.</p>
+        <p>Dikembangkan oleh <a href="#">Data Elevia</a> | Instagram: <a href="https://instagram.com/solusi.asetproperti" target="_blank">@solusi.asetproperti</a></p>
+    </footer>
+
+    <script>
+        document.getElementById('whatsapp-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value.replace(/\D/g, '');
+            const message = document.getElementById('message').value;
+            
+            const formattedMessage = `Hai Data Elevia,
+
+Nama: ${name}
+No. WA: ${phone}
+
+Pesan: ${message}
+
+Terima kasih!`;
+            
+            const waUrl = `https://wa.me/${phone}?text=${encodeURIComponent(formattedMessage)}`;
+            window.open(waUrl, '_blank');
+        });
+    </script>
+</body>
+</html>
